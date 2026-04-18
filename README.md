@@ -1,4 +1,4 @@
-<img width="2844" height="1504" alt="Gemini_Generated_Image_b8b1r4b8b1r4b8b1" src="https://github.com/user-attachments/assets/b831c2e6-024f-4caf-b82b-7a39510e3a65" /><img width="2844" height="1504" alt="Gemini_Generated_Image_b8b1r4b8b1r4b8b1" src="https://github.com/user-attachments/assets/7c3c64ff-9024-41ad-b602-4de001b0dc74" /># Bubble Pop Game
+# Bubble Pop Game
 
 A fun and simple arcade game built using **C++17** and the **Raylib** library. Pop as many bubbles as you can before the timer runs out!
 
@@ -12,7 +12,9 @@ A fun and simple arcade game built using **C++17** and the **Raylib** library. P
 
 ## Screenshot preview
 <img width="800" height="480" alt="螢幕擷取畫面 2026-04-18 210824" src="https://github.com/user-attachments/assets/da94a588-73d9-40ee-aca1-cdf506cd3e45" />
+
 <img width="800" height="480" alt="螢幕擷取畫面 2026-04-18 210838" src="https://github.com/user-attachments/assets/633de1ff-06c7-4335-9b55-ac1e1bd72396" />
+
 <img width="800" height="480" alt="螢幕擷取畫面 2026-04-18 210846" src="https://github.com/user-attachments/assets/b37dd7f4-0b47-4b46-9da5-5516209b1023" />
 
 ## ⌨️ Controls
