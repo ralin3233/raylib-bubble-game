@@ -10,8 +10,10 @@ int main() {
     
     GameScreen currentScreen = TITLE;
     int score = 0;
-    Bubbles b(1, 10);
+    float time = 30;
+    Bubbles b(0.8, 12);
     Bubble example({50, 50},{80,80},35, MAGENTA);
+
     while (!WindowShouldClose()) {
 
         switch (currentScreen)
@@ -19,6 +21,7 @@ int main() {
         case TITLE:
             if (IsKeyPressed(KEY_ENTER)){
                 score = 0;
+                time = 30;
                 currentScreen = GAMEPLAY;
             }
             example.move();
@@ -29,6 +32,10 @@ int main() {
                 score++;
             };
             if (IsKeyPressed(KEY_ENTER)){
+                currentScreen = ENDING;
+            }
+            time -= GetFrameTime();
+            if (time <= 0){
                 currentScreen = ENDING;
             }
             b.move();
@@ -52,20 +59,21 @@ int main() {
         {
         case TITLE:
             example.draw();
-            DrawText("BUBBLE POP GAME", 200, 150, 40, DARKBLUE);
-            DrawText("PRESS ENTER TO START", 240, 220, 20, DARKGRAY);
+            DrawText("BUBBLE POP GAME", 210, 120, 40, DARKBLUE);
+            DrawText("Press ENTER to start", 260, 230, 20, DARKGRAY);
             
             break;
         case GAMEPLAY:
             b.draw();
-            DrawText(TextFormat("SCORE: %05d", score), 20, 20, 30, DARKGRAY);
+            DrawText(TextFormat("Score: %05d", score), 20, 20, 30, DARKGRAY);
+            DrawText(TextFormat("Time: %.0f", time), 20, 70, 30, DARKGRAY);
             break;
         case ENDING:
             b.draw();
             DrawRectangle(0, 0, 800, 450, Fade(BLACK, 0.8f)); // 半透明背景
             DrawText("GAME OVER", 280, 150, 40, WHITE);
-            DrawText(TextFormat("FINAL SCORE: %d", score), 310, 220, 20, YELLOW);
-            DrawText("PRESS ENTER BACK TO TITLE", 240, 300, 20, LIGHTGRAY);
+            DrawText(TextFormat("Final Score: %d", score), 310, 220, 20, YELLOW);
+            DrawText("Press ENTER back to title", 240, 300, 20, LIGHTGRAY);
 
             
             break;
