@@ -4,7 +4,32 @@
 Bubble::Bubble(Vector2 pos, Vector2 spd, float r, Color c): position(pos), speed(spd), radius(r), color(c){}
 
 void Bubble::draw() const {
-        DrawCircleV(position, radius, color);
+        // 1. 底色 (半透明)
+        DrawCircleV(position, radius, Fade(SKYBLUE, 0.6f));
+        
+        // 2. 外框
+        DrawCircleLinesV(position, radius, BLUE);
+        
+        // 3. 高光反射 (放在左上方約 1/3 半徑處)
+        Vector2 highlightPos = { position.x - radius * 0.3f, position.y - radius * 0.3f };
+        DrawCircleV(highlightPos, radius * 0.2f, Fade(WHITE, 0.8f));
+    }
+
+void Bubble::draw(Texture2D tex) const {
+        // 1. 定義貼圖在螢幕上的目標區域 (以泡泡中心點為基礎擴展一個正方形)
+        Rectangle destRec = { position.x - radius, position.y - radius, radius * 2.0f, radius * 2.0f };
+
+        // 2. 定義貼圖本身的來源區域 (使用整張圖片)
+        Rectangle srcRec = { 0, 0, (float)tex.width, (float)tex.height };
+
+        // 3. 旋轉與縮放中心點 (設為目標正方形的中心)
+        Vector2 origin = { radius, radius };
+
+        // 4. 開始混和模式：加成混合 (這會自動濾除黑色背景)
+        BeginBlendMode(BLEND_ADDITIVE);
+            // 5. 繪製貼圖 (可以使用 Fade 給予一點顏色濾鏡，或用 WHITE 保留原圖顏色)
+            DrawTexturePro(tex, srcRec, destRec, origin, 0.0f, Fade(SKYBLUE, 0.8f));
+        EndBlendMode();
     }
 
 void Bubble::move(){
@@ -32,6 +57,12 @@ void Bubble::move(){
 void Bubbles::draw() const {
         for(auto &bubble : bubbleList){
             bubble.draw();
+        }
+    }
+
+void Bubbles::draw(Texture2D tex) const {
+        for(auto &bubble : bubbleList){
+            bubble.draw(tex);
         }
     }
 

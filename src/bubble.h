@@ -12,6 +12,7 @@ class Bubble{
     public:
     Bubble(Vector2 pos, Vector2 spd, float r, Color c);
     void draw() const;
+    void draw(Texture2D) const;
     void move();
 };
 
@@ -27,6 +28,7 @@ class Bubbles{
     
     Bubbles(float interval, int max) : spawnTimer(0.0f), spawnInterval(interval), maxBubbles(max) {}
     void draw() const;
+    void draw(Texture2D) const;
     /*讓泡泡動起來*/ 
     void move();
     /*生成泡泡*/
