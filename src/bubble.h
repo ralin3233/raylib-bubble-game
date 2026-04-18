@@ -32,4 +32,5 @@ class Bubbles{
     /*生成泡泡*/
     void update(float);
 
+    void clickedCheck();
 };

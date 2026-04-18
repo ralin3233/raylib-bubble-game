@@ -97,3 +97,14 @@ void Bubbles::update(float deltaTime) {
             }
         }
     }
+void Bubbles::clickedCheck(){
+    if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
+            Vector2 mouse = GetMousePosition();
+            for(int i = bubbleList.size()-1; i >=0 ; i--){
+                if (CheckCollisionPointCircle(mouse, bubbleList[i].position, bubbleList[i].radius)) {
+                    bubbleList.erase(bubbleList.begin() + i);
+                    break; // 點到一顆就收工，避免穿透點擊
+                }
+            }
+        }
+}
