@@ -12,9 +12,9 @@ A fun and simple arcade game built using **C++17** and the **Raylib** library. P
 
 ## Screenshot preview
 <img width="800" height="480" alt="螢幕擷取畫面 2026-04-18 210824" src="https://github.com/user-attachments/assets/da94a588-73d9-40ee-aca1-cdf506cd3e45" />
-
+<br>
 <img width="800" height="480" alt="螢幕擷取畫面 2026-04-18 210838" src="https://github.com/user-attachments/assets/633de1ff-06c7-4335-9b55-ac1e1bd72396" />
-
+<br>
 <img width="800" height="480" alt="螢幕擷取畫面 2026-04-18 210846" src="https://github.com/user-attachments/assets/b37dd7f4-0b47-4b46-9da5-5516209b1023" />
 
 ## ⌨️ Controls
